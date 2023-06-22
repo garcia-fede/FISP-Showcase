@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Neo Sans Regular';
+    src: url('Fonts/NeoSansProRegular.OTF') format('opentype');
+}
+@font-face {
+    font-family: 'Neo Sans Medium';
+    src: url('Fonts/NeoSansProMedium.OTF') format('opentype');
+}
+@font-face {
+    font-family: 'Neo Sans Black';
+    src: url('Fonts/NeoSansProBlack.OTF') format('opentype');
+}
+@font-face {
+    font-family: 'Neo Sans Ultra';
+    src: url('Fonts/NeoSansProUltra.OTF') format('opentype');
+}
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+/*------------------------------------------------- CLASES & VARIABLES GENERALES ------------------------------------------------*/
+:root{
+    /* Colores FISP */
+    --blanco: #FCFFFF;
+    --azul: #22265A;
+    --rojo: #E71D29;
+    --verde: #167533;
+    --amarillo: #F1B94F;
+    /* Otros */
+    --azul-claro: #0D6EFD;
+    --celeste: #91C8D4;
+    --section-alternative: #F6F7FA;
+    /* Letras */
+    --font-big-title: 50px; /*-- 2.75 rem --*/
+    --font-title: 44px; /*-- 2.75 rem --*/
+    --font-size-1: 32px; /*-- 2 rem -----*/
+    --font-size-2: 24px; /*-- 1.75 rem --*/
+    --font-size-3: 20px; /*-- 1.5 rem ---*/
+    --font-size-4: 16px; /*-- 1 rem -----*/
+    --font-size-5: 12px; /*-- 0.75 rem --*/
+}
+/* TIPOGRAFIA */
+.fs-6{
+    font-size: var(--font-title);
+}
+.fs-7{
+    font-size: var(--font-big-title);
+}
+.poppins{
+    font-family: 'Poppins',sans-serif;
+}
+/* BACKGROUNDS */
+.bg-celeste{
+    background: var(--celeste);
+}
+.bg-negro{
+    background: black;
+    color: white;
+}
+.bg-semi-blanco{
+    background: var(--section-alternative);
+}
+/* MARGENES */
+.m-100{
+    margin: 0 100px;
+}
+.m-200{
+    margin: 0 200px;
+}
+.m-300{
+    margin: 0 300px;
+}
+.m-400{
+    margin: 0 400px;
+}
+.m-500{
+    margin: 0 500px;
+}
+/* ALTURAS */
+.h-100{
+    min-height: 100px;
+}
+.h-300{
+    min-height: 300px;
+}
+.h-500{
+    min-height: 500px;
+}
+.h-700{
+    min-height: 700px;
+}
+.h-all{
+    height: 100%;
+}
+/* SECCIONES */
+.box-shadow{
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.section-big{
+    min-height: 100vh;
+}
+.section-md{
+    min-height: 70vh;
+}
+.section-sm{
+    min-height: 40vh;
+}
+.section-xs{
+    min-height: 20vh;
+}
+.section-default{
+    background: var(--blanco);
+}
+.section-color{
+    background: var(--section-alternative);
+}
+
+/*---------------------------------------------------------- NavBars ------------------------------------------------------------*/
+.regular-navbar{
+    position: sticky;
+    bottom: 0;
+    background: var(--blanco);
+    padding-inline: 20%;
+    font-size: var(--font-size-4);
+    font-weight: 700;
+    z-index: 100;
+    box-shadow: 0px -2px 15px -3px rgba(0,0,0,0.1);
+}
+.regular-navbar img{
+    width: 100px;
+    transform: translateX(-50%);
+}
+.regular-navbar ul{
+    justify-content: space-between;
+}
+.regular-navbar ul li a{
+    text-decoration: none;
+    color: black;
+}
+.regular-navbar ul li a:hover{
+    color: var(--azul);
+}
+/*------------ Side nav ---------------*/
+.side-nav{
+    min-width: 350px;
+    background-image: url(../multimedia/imagenes/prism-bg.png);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -350px;
+    transition: .4s;
+    z-index: 101;
+    text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.side-nav-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d6dfd;
+    opacity: 0.25;
+    pointer-events: none;
+}
+.side-nav ul{
+    margin-left: 25px;
+    height: 70%;
+    padding: 10% 0;
+    list-style: none;
+}
+.side-nav ul li{
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+.side-nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+.side-nav img{
+    width: 50%;
+    transform: translateX(-15%);
+}
+/*--------- Hamburger -----------------*/
+.hamburger{
+    position: absolute;
+    right: 375px;
+    top: 25px;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 7.5px;
+    border-radius: 15px;
+}
+#checkbox {
+    display: none;
+}
+.toggle{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6.5px;
+    transition-duration: .5s;
+}
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(29, 29, 29);
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+#bar2 {
+    transition-duration: .8s;
+}
+#bar1,#bar3 {
+    width: 70%;
+}
+#checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+}
+#checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+}
+#checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+}
+#checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+}
+#checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+}
+/*---------------------------------------------------------- SERVICIOS ----------------------------------------------------------*/
+.service-section-bar{
+    color: gray;
+}
+.service-section-bar a{
+    text-decoration: none;
+}
+.services-page-container{
+    left: 0;
+    transition: .4s;
+    width: 100%; 
+    position: relative;   
+}
+.services{
+    margin-bottom: 100px;
+}
+.service{
+    position: relative;
+    height: 30vw;
+    overflow: hidden;
+    cursor: pointer;
+}
+.service img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    transition: 0.5s;
+}
+.service:hover img{
+    filter: grayscale(100%);
+}
+.service-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    transition: 0.5s;
+    background: #0d6dfd4d;
+}
+.service:hover .service-content{
+    opacity: 1;
+}
+.service-content h3{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.service-content button{
+    width: 125px;
+    background: none;
+    border: none;
+    text-align: start;
+    color: white;
+    font-weight: 500;
+}
+/*------------------------------------------------------ SERVICIOS - VIDEO ------------------------------------------------------*/
+.video-container{
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.video-container video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    max-width: 200%;
+    min-height: 70vh;
+    z-index: -1;
+}
+.image-container{
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+}
+/*--------------------------------------------------- SERVICIOS TECNOLOGICOS ---------------------------------------------------*/
+.servicios-tecnologicos-image{
+    position: relative;
+    background-image: url(../multimedia/imagenes/medico-laptop.jpg);
+}
+.servicios-tecnologicos-image h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: var(--azul-claro);
+    transform: translate(-50%,-100%);
+    font-weight: 700;
+    font-size: 5rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+.servicios-tecnologicos-section{
+    left: 0;
+    transition: .4s;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.img-1-1{
+    width: 100%;
+    aspect-ratio: 1;
+    max-height: 400px;
+    object-fit: cover;
+    object-position:center;
+}
+.img-2-1{
+    width: 100%;
+    aspect-ratio: 2/1;
+    max-height: 400px;
+    object-fit: cover;
+    object-position:center;
+}
+.img-2-1-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    color: white;
+}
+.img-2-1-overlay h3{
+    text-transform: uppercase;
+    color: #91C8D4;
+    font-weight: 700;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#vertical-services img{
+    height: 500px;
+    aspect-ratio: 1;
+}
+#vertical-services p{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+@media(max-width:575px){
+    .service{
+        width: 100%;
+        aspect-ratio: 16/9;
+        height: auto;
+    }
+    .service img{
+        height: 100%;
+        object-position:center;
+    }
+}
